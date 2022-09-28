@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body{
+    background: linear-gradient(rgb(102, 9, 9),rgb(22, 13, 31));
+    height: 100vh;
+    font-family: system-ui;
+}
+section{
+    /*add the image to the backgroung*/
+    background: url(stars1.png);
+    height: 100vh;
+    /*to make the list in the center*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul{
+    text-align: center;
+}
+ul li{
+    /*to remove the points of the list*/
+    list-style: none;
+    margin: 14px 0px;
+}
+/*when we are base in one box we remove the other boxes*/
+ul:hover li a{
+    opacity: 0;
+    
+}
+
+ul li a{
+    color:white;
+    /*to remove the underline of the link we use this instruction
+    */
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    /*to make space between letters in the words*/
+    letter-spacing: 4px;
+    /*to add a box for words*/
+    background :rgb(22, 13, 31);
+    padding: 6px 15px;
+    border-radius: 20px;
+    /*to make space between boxes and make the transform work*/
+    display: inline-block;
+    /*to make the letters uppercase*/
+    text-transform: uppercase;
+    width: 150px;
+    height: 25px;
+    /*this to make the word under the boxes*/
+    position: relative;
+    z-index: 10;
+}
+
+ul li a:hover{
+    /*to make hover*/
+    transform: scale(1.5);
+    /*to make the the transformation of the hover slowly*/
+    transition: 0.5s;
+    background: darkmagenta;
+    /*this is used to keep the box that we are  based on*/
+    opacity: 1;
+}
+
+ul li::after{
+    /*this is used to put the name which is in the box beneath 
+    the box when we are based on it*/
+    content: attr(data-text);
+    position: absolute;
+    left : 50%;
+    top: 50%;
+    /*to make in the midlle*/
+    transform: translate(-50%,-50%);
+    font-size: 80px;
+    font-weight: 900;
+    text-transform: uppercase;
+    opacity: 0;
+    letter-spacing: 50px;
+    /*this is used to remove the action of the cursur if he pointers at side the boxes*/
+    pointer-events: none;
+    /*this is used to slow the transfromation from 180px to
+    80px in the letter-spacing*/
+    transition: 0.5s;
+}
+/*this is used to show the word after the box*/
+/*this let this one be showed only if we do hover*/
+ul li:hover:after{
+    opacity: 0.7;
+    letter-spacing: 5px;
+}
+/*this is to make the moon */
+ul li::before{
+    content: '';
+    width: 180px;
+    height: 80px;
+    background: white;
+    position: absolute;
+    left : 50%;
+    top: 50%;
+    /*to make in the midlle*/
+    transform: translate(-50%,70%);
+    /*to make it as a circle*/
+    border-radius: 50%;
+    /*to make the shadow*/
+    box-shadow: 0 0 80px orange;
+    opacity: 0;
+    /*this is used to slow the transfromation from 180px to
+    80px in the width*/
+    transition: 0.5s;
+
+}
+/*this let this one be showed only if we do hover*/
+ul li:hover::before{
+    opacity: 0.5;
+    width: 80px;
+}
+
+
+
